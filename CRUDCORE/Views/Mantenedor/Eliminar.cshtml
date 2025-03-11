@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer verRecurso;
+@model ContactoModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        @verRecurso["String1"]
+    </div>
+    <div class="card-body">
+        <form asp-action="Eliminar" asp-controller="Mantenedor" method="post">
+
+            <input asp-for="IdContacto" type="hidden" class="form-control">
+            <div class="alert alert-danger" role="alert">
+                ¿@verRecurso["String2"] :@Html.DisplayTextFor(model => model.Nombre) ?
+            </div>
+            <button type="submit" class="btn btn-danger">@verRecurso["String3"]</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">@verRecurso["String4"]</a>
+        </form>
+    </div>
+</div>
+
+
+

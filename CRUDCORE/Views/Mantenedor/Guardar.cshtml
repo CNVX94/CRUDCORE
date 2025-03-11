@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer verRecurso;
+
+@model ContactoModel
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        @verRecurso["String1"]
+    </div>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Mantenedor" method="post"> 
+            <div class="mb-3">
+                <label class="form-label">@verRecurso["String2"]</label>
+                <input asp-for="Nombre" type="text" class="form-control" > 
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">@verRecurso["String3"]</label>
+                <input asp-for="Telefono" type="text" class="form-control">
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">@verRecurso["String4"]</label>
+                <input asp-for="Correo" type="text" class="form-control">
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">@verRecurso["String5"]</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">@verRecurso["String6"]</a>
+        </form>
+        </div>
+</div>
+
